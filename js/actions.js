@@ -1,18 +1,17 @@
-export function increment() {
-    return {type: 'INCREMENT'};
-}
-export function decrement() {
-    return {type: 'DECREMENT'};
-}
+let nextId = 0;
 
-export function asyncIncrement() {
-    return (dispatch) => {
-        return dispatch(increment());
-    };
-}
+/**
+ * create new Todo
+ * @param  {String} content New todo's content
+ * @return {Action object}
+ */
+export const newTodo = (content) => ({ type: 'NEW_TODO', id: nextId+=1, content });
+export const asyncNewTodo = () => (dispatch) => dispatch(newTodo());
 
-export function asyncDecrement() {
-    return (dispatch) => {
-        return dispatch(decrement());
-    };
-}
+/**
+ * Change a specific todo's state (from incomplete to completed and vice versa)
+ * @param  {int} id ID of the todo
+ * @return {Action object}
+ */
+export const changeTodoState = (id) => ({ type: 'CHANGE_TODO_STATE', id });
+export const asynChangeTodoState = () => (dispatch) => dispatch(changeTodoState());
