@@ -1,8 +1,6 @@
-#jd-react-webpack
+#jd-react-todo
 
-A simple react boilerplate, with PostCSS, Redux, React-Router via webpack
-
-a simplified version & inspired by https://github.com/mxstbr/react-boilerplate.git
+A simple todo app using boilerplate from https://github.com/jdinhlife/jd-react-webpack
 
 ## Usage
 

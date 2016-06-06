@@ -4,7 +4,6 @@
   "description": "",
   "scripts": {
     "test": "node_modules/.bin/babel-node test/index.js",
-    "test:watch": "npm test -- --watch",
     "start": "cross-env NODE_ENV=development node server.dev.js",
     "build": "npm run test && cross-env NODE_ENV=production webpack --config webpack.config.prod.js --progress --colors -p",
     "build:clean": "rm dist",
