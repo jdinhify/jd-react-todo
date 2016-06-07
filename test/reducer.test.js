@@ -33,7 +33,7 @@ test('reducer', (nest) => {
         t.end();
     });
 
-    nest.test('..add new todo', (t) => {
+    nest.test('...add new todo', (t) => {
         const content1 = 'Todo #1',
             content2 = 'Todo #2';
 
