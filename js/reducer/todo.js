@@ -20,7 +20,7 @@ const todo = (state, action) => {
 const todos = (state = [], action) => {
     switch(action.type) {
     case NEW_TODO:
-        return [ ...state, todo(state, action) ];
+        return orderBy([ ...state, todo(state, action) ], ['completed', 'id'], ['asc', 'asc']);
     case TOGGLE_TODO:
         return orderBy(state.map((s) => todo(s, action)), ['completed', 'id'], ['asc', 'asc']);
     default:

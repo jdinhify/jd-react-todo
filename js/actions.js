@@ -14,4 +14,4 @@ export const asyncNewTodo = () => (dispatch) => dispatch(newTodo());
  * @return {Action object}
  */
 export const toggleTodo = (id) => ({ type: TOGGLE_TODO, id });
-export const asynToggleTodo = () => (dispatch) => dispatch(toggleTodo());
+export const asyncToggleTodo = () => (dispatch) => dispatch(toggleTodo());

@@ -4,17 +4,14 @@ import {Route, Router, hashHistory} from 'react-router'; //eslint-disable-line
 import App from './app';
 import {CounterContainer} from './Counter/counter';
 import AppIntro from './AppIntro/intro';
-import {createStore, applyMiddleware} from 'redux';
-import reducer from './reducers';
+import { makeStore } from './store';
 import {Provider} from 'react-redux'; //eslint-disable-line
-import thunk from 'redux-thunk';
 
 
 // Import the CSS file, which HtmlWebpackPlugin transfers to the build folder
 import '../css/main.css';
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const store = createStoreWithMiddleware(reducer);
+const store = makeStore();
 
 const routes = <Route component={App}>
     <Route path='/counter' component={CounterContainer} />
