@@ -1,0 +1,17 @@
+linters:
+  Indentation:
+    width: 4
+
+  NameFormat:
+    selector_convention: ^p[\w\-\_]+$
+    variable_convention: ^[a-zA-Z\-_]+$
+    function_convention: camel_case
+
+  SelectorFormat:
+    convention: hyphenated_BEM
+
+  SpaceAfterPropertyColon:
+    style: aligned
+
+  NestingDepth:
+    max_depth: 4

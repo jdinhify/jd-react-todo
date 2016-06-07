@@ -4,14 +4,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function(options) {
-    var entry, plugins, cssLoaders;
+    var entry, plugins, cssLoaders, devtool;
 
     // If building for prod
     if (options.prod) {
         entry = [
             path.resolve(__dirname, 'js/index.js')
         ];
-        cssLoaders = ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader');
+        devtool = '';
+        cssLoaders = ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader');
 
         plugins = [
             new webpack.optimize.UglifyJsPlugin({
@@ -36,7 +37,7 @@ module.exports = function(options) {
                 },
                 inject: true
             }),
-            new ExtractTextPlugin('css/main.css'),
+            new ExtractTextPlugin('css/main.css', {allChunks: false}),
             new webpack.DefinePlugin({
                 'process.env': {
                     NODE_ENV: JSON.stringify('production')
@@ -50,7 +51,8 @@ module.exports = function(options) {
             'webpack/hot/only-dev-server', // as above
             path.resolve(__dirname, 'js/index.js')
         ];
-        cssLoaders = 'style-loader!css-loader!postcss-loader';
+        devtool = 'inline-source-map';
+        cssLoaders = 'style!css-loader?sourceMap!sass-loader?sourceMap';
         plugins = [
             new webpack.HotModuleReplacementPlugin(), // make hot loading work
             new HtmlWebpackPlugin({
@@ -66,7 +68,8 @@ module.exports = function(options) {
             path:     path.resolve(__dirname, 'dist'),
             filename: 'js/bundle.js'
         },
-        module: {
+        devtool: devtool,
+        module:  {
             loaders: [
                 {
                     test:    /\.js$/,
@@ -74,7 +77,7 @@ module.exports = function(options) {
                     exclude: path.join(__dirname, '/node_modules/')
                 },
                 {
-                    test:   /\.css$/,
+                    test:   /\.scss$/,
                     loader: cssLoaders
                 },
                 {
@@ -83,25 +86,7 @@ module.exports = function(options) {
                 }
             ]
         },
-        plugins: plugins,
-        postcss: function() {
-            return [
-                require('postcss-import')({ // Import all the css files...
-                    glob:     true,
-                    onImport: function (files) {
-                        files.forEach(this.addDependency); // add dependencies
-                    }.bind(this) // ...so they get hot–reloaded when something changes...
-                }),
-                require('postcss-simple-vars')(), // ...then replace the variables...
-                require('postcss-focus')(), // ...add a :focus to ever :hover...
-                require('autoprefixer')({ // ...and add vendor prefixes...
-                    browsers: ['last 2 versions', 'IE > 8']
-                }),
-                require('postcss-reporter')({ // This plugin makes sure we get warnings in the console
-                    clearMessages: true
-                })
-            ];
-        },
+        plugins:  plugins,
         target:   'web',
         stats:    {colors: true},
         progress: true
