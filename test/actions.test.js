@@ -1,11 +1,12 @@
 import test from 'tape';
 import * as actions from '../js/actions';
+import { NEW_TODO, TOGGLE_TODO } from '../js/constants';
 
-test('actions', nest => {
+test('actions', (nest) => {
 
     nest.test('...add new todo', (t) => {
         const content = 'Todo #1';
-        const expectedAction = { type: 'NEW_TODO', id: 1, content };
+        const expectedAction = { type: NEW_TODO, content };
         const actualAction = actions.newTodo(content);
 
         t.deepEqual(actualAction, expectedAction, 'should create a NEW_TODO action');
@@ -14,10 +15,10 @@ test('actions', nest => {
 
     nest.test('...change todo state', (t) => {
         const id = 1;
-        const expectedAction = { type: 'CHANGE_TODO_STATE', id };
-        const actualAction = actions.changeTodoState(id);
+        const expectedAction = { type: TOGGLE_TODO, id };
+        const actualAction = actions.toggleTodo(id);
 
-        t.deepEqual(actualAction, expectedAction, 'should create a CHANGE_TODO_STATE action');
+        t.deepEqual(actualAction, expectedAction, 'should create a TOGGLE_TODO action');
         t.end();
     });
 });

@@ -1,1 +1,2 @@
-import './test-01-actions';
+import './actions.test';
+import './reducer.test';
