@@ -4,7 +4,7 @@ import { NEW_TODO, TOGGLE_TODO } from '../js/constants';
 
 test('reducer', (nest) => {
 
-    nest.test('...initial state', (t) => {
+    nest.test('...returns initial state', (t) => {
         const expectedState = { todos: [] };
         const actualState = reducer(undefined, {});
 

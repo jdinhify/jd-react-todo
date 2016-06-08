@@ -4,7 +4,7 @@ import { newTodo, toggleTodo } from '../js/actions';
 
 test('store', (nest) => {
 
-    nest.test('...initial state', (t) => {
+    nest.test('...returns initial state', (t) => {
         const expectedState = { todos: [] };
         const store = makeStore();
         const actualState = store.getState();
@@ -13,7 +13,7 @@ test('store', (nest) => {
         t.end();
     });
 
-    nest.test('...dispatch create new todo', (t) => {
+    nest.test('...dispatches create new todo', (t) => {
         const content = 'Todo #1';
         const expectedState = {
             todos: [
@@ -34,7 +34,7 @@ test('store', (nest) => {
         t.end();
     });
 
-    nest.test('...dispatch toggle todo', (t) => {
+    nest.test('...dispatches toggle todo', (t) => {
         const content1 = 'Todo #1',
             content2 = 'Todo #2',
             content3 = 'Todo #3';

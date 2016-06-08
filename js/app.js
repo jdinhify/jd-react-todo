@@ -1,7 +1,10 @@
-import React from 'react';
+import React from 'react'; //eslint-disable-line
+import TodoListContainer from './components/todoListContainer'; //eslint-disable-line
 
-export default React.createClass({
-    render: function() {
-        return this.props.children;
-    }
-});
+const App = () =>
+  <div>
+    <TodoListContainer />
+  </div>
+;
+
+export default App;

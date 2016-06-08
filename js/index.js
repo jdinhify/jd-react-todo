@@ -2,8 +2,6 @@ import React from 'react'; // eslint-disable-line
 import ReactDOM from 'react-dom';
 import {Route, Router, hashHistory} from 'react-router'; //eslint-disable-line
 import App from './app';
-import {CounterContainer} from './Counter/counter';
-import AppIntro from './AppIntro/intro';
 import { makeStore } from './store';
 import {Provider} from 'react-redux'; //eslint-disable-line
 
@@ -14,8 +12,7 @@ import '../css/main.scss';
 const store = makeStore();
 
 const routes = <Route component={App}>
-    <Route path='/counter' component={CounterContainer} />
-    <Route path='/' component={AppIntro} />
+    <Route path='/' component={App} />
 </Route>;
 
 // Make reducers hot reloadable,
