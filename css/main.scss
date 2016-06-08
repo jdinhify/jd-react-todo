@@ -1,3 +1,23 @@
 body {
     font-family: sans-serif;
+    margin:      0 auto;
+    max-width:   48rem;
 }
+
+.todo {
+    list-style-type: none;
+    margin:          0;
+    padding:         0;
+
+    &__item {
+        cursor:     pointer;
+        display:    block;
+        padding:    1rem;
+        transition: all ease-in-out 1s;
+
+        &--completed {
+            text-decoration: line-through;
+        }
+    }
+}
+
