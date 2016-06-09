@@ -1,7 +1,6 @@
-$yellow: #fc6;
-$green: #9c9;
+$green: #4e9b4e;
 $red: #f2777a;
-$blue: #69c;
+$blue: #477aad;
 $grey: #f2f0ec;
 $dark-grey: #515151;
 $cyan: #6cc;
@@ -71,10 +70,10 @@ body {
         margin:        .5rem 0;
         padding:       1rem;
         transition:    box-shadow ease-in-out .3s;
-        // transition:    all ease-in-out 1s;
 
         &--completed {
-            color: $green;
+            // background: $grey;
+            color:      $green;
 
             &::before {
                 content:       '\2713';
@@ -85,7 +84,7 @@ body {
 
         &:hover,
         &:focus {
-            box-shadow: inset 0 1px 1px $yellow;
+            box-shadow: inset 0 1px 1px $cyan;
         }
     }
 
@@ -105,12 +104,13 @@ button {
 .filter {
     @extend %space-between;
 }
+
 .button {
     @extend %button;
 
     &--active {
         background: $blue;
-        color:      $grey;
+        color:      $white;
         cursor:     default;
 
         &:hover {
