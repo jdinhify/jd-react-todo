@@ -1,6 +1,10 @@
 #jd-react-todo
 
-A simple todo app using boilerplate from https://github.com/jdinhlife/jd-react-webpack
+A simple todo list using boilerplate from https://github.com/jdinhlife/jd-react-webpack
+
+## Demo
+
+https://jdinh.life/apps/react-todo/
 
 ## Usage
 

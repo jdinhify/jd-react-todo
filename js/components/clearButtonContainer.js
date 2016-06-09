@@ -8,7 +8,7 @@ class ClearButtonContainer extends React.Component {
     render() {
         return (
             <li className='clear'>
-                <ClearButton text="Clear Completed Todos" />
+                <ClearButton text="Clear Completed Items" />
             </li>
         );
     }
