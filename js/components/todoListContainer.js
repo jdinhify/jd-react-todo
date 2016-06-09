@@ -4,6 +4,9 @@ import { DISPLAY_ALL , DISPLAY_INCOMPLETE, DISPLAY_COMPLETED } from '../constant
 import TodoList from './todoList';
 
 const doFilter = (todos, filter) => {
+    if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('jd-react-todo-filter', filter);
+    }
     switch (filter) {
     case DISPLAY_ALL:
         return todos;

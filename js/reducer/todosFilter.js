@@ -1,6 +1,10 @@
 import { DISPLAY_ALL, FILTER_TODOS } from '../constants';
 
-const initialFilter = DISPLAY_ALL;
+let initialFilter = DISPLAY_ALL;
+
+if (typeof localStorage !== 'undefined') {
+    initialFilter = localStorage.getItem('jd-react-todo-filter') || DISPLAY_ALL;
+}
 
 const todosFilter = ( state = initialFilter, action ) => {
     switch(action.type) {

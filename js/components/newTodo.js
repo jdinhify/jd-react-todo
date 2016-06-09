@@ -23,7 +23,7 @@ export const NewTodoForm = ({ dispatch }) => {
                     type="text"
                     placeholder="What to do?"
                     ref={node => { input = node; }} />
-                <button type="submit">Add</button>
+                <button type="submit">+</button>
             </form>
         </div>
     );

@@ -19,7 +19,7 @@ const routes = <Route component={App}>
 // see http://stackoverflow.com/questions/34243684/make-redux-reducers-and-other-non-components-hot-loadable
 if (module.hot) {
     module.hot.accept('./reducer', () => {
-        const nextRootReducer = require('./reducer');
+        const nextRootReducer = require('./reducer').default;
         store.replaceReducer(nextRootReducer);
     });
 }
