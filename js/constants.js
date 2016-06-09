@@ -1,2 +1,6 @@
 export const NEW_TODO = 'NEW_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
+export const FILTER_TODOS = 'TOGGLE_TODOS';
+export const DISPLAY_ALL = 'DISPLAY_ALL';
+export const DISPLAY_INCOMPLETE = 'DISPLAY_INCOMPLETE';
+export const DISPLAY_COMPLETED = 'DISPLAY_COMPLETED';

@@ -1,11 +1,11 @@
 import test from 'tape';
 import reducer from '../js/reducer';
-import { NEW_TODO, TOGGLE_TODO } from '../js/constants';
+import { NEW_TODO, TOGGLE_TODO, DISPLAY_ALL } from '../js/constants';
 
 test('reducer', (nest) => {
 
     nest.test('...returns initial state', (t) => {
-        const expectedState = { todos: [] };
+        const expectedState = { todos: [], todosFilter: DISPLAY_ALL };
         const actualState = reducer(undefined, {});
 
         t.deepEqual(actualState, expectedState, 'should return object with empty todos array');
@@ -21,7 +21,8 @@ test('reducer', (nest) => {
                     id:        0,
                     completed: false
                 }
-            ]
+            ],
+            todosFilter: DISPLAY_ALL
         };
 
         const actualState = reducer( { todos: [] }, {
@@ -61,7 +62,8 @@ test('reducer', (nest) => {
                     id:        1,
                     completed: true
                 }
-            ]
+            ],
+            todosFilter: DISPLAY_ALL
         };
 
         const actualState = reducer(
@@ -108,7 +110,8 @@ test('reducer', (nest) => {
                     id:        1,
                     completed: true
                 }
-            ]
+            ],
+            todosFilter: DISPLAY_ALL
         };
 
         const actualState = reducer(
@@ -157,7 +160,8 @@ test('reducer', (nest) => {
                     id:        1,
                     completed: true
                 }
-            ]
+            ],
+            todosFilter: DISPLAY_ALL
         };
 
         const actualState = reducer(
@@ -187,4 +191,5 @@ test('reducer', (nest) => {
         t.deepEqual(actualState, expectedState, '2nd item completed and push down to the end of the list');
         t.end();
     });
+
 });

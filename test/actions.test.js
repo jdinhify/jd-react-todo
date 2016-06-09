@@ -1,6 +1,6 @@
 import test from 'tape';
 import * as actions from '../js/actions';
-import { NEW_TODO, TOGGLE_TODO } from '../js/constants';
+import { NEW_TODO, TOGGLE_TODO, FILTER_TODOS } from '../js/constants';
 
 test('actions', (nest) => {
 
@@ -19,6 +19,14 @@ test('actions', (nest) => {
         const actualAction = actions.toggleTodo(id);
 
         t.deepEqual(actualAction, expectedAction, 'should create a TOGGLE_TODO action');
+        t.end();
+    });
+
+    nest.test('...filter todo list', (t) => {
+        const expectedAction = { type: FILTER_TODOS, filter: {} };
+        const actualAction = actions.filterTodos({});
+
+        t.deepEqual(actualAction, expectedAction, 'should create a FILTER_TODOS action');
         t.end();
     });
 });

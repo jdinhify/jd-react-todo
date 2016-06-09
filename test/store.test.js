@@ -1,11 +1,12 @@
 import test from 'tape';
 import { makeStore } from '../js/store';
 import { newTodo, toggleTodo } from '../js/actions';
+import { DISPLAY_ALL } from '../js/constants'
 
 test('store', (nest) => {
 
     nest.test('...returns initial state', (t) => {
-        const expectedState = { todos: [] };
+        const expectedState = { todos: [], todosFilter: DISPLAY_ALL };
         const store = makeStore();
         const actualState = store.getState();
 
@@ -22,7 +23,8 @@ test('store', (nest) => {
                     completed: false,
                     content
                 }
-            ]
+            ],
+            todosFilter: DISPLAY_ALL
         };
 
         const store = makeStore();
@@ -56,7 +58,8 @@ test('store', (nest) => {
                     completed: true,
                     content:   content2
                 }
-            ]
+            ],
+            todosFilter: DISPLAY_ALL
         };
 
         const store = makeStore();
