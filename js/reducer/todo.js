@@ -1,4 +1,4 @@
-import { NEW_TODO, TOGGLE_TODO } from '../constants';
+import { NEW_TODO, TOGGLE_TODO, CLEAR_COMPLETED } from '../constants';
 import orderBy from 'lodash/orderBy';
 
 let initialState = [];
@@ -33,11 +33,18 @@ const todos = (state = initialState, action) => {
         }
         return newTodos;
     case TOGGLE_TODO:
-        newTodos = orderBy(state.map((s) => todo(s, action)), ['completed', 'id'], ['asc', 'asc']);
+        newTodos = orderBy(state.map((t) => todo(t, action)), ['completed', 'id'], ['asc', 'asc']);
         if (typeof localStorage !== 'undefined') {
             localStorage.setItem('jd-react-todo-todos', JSON.stringify(newTodos));
         }
         return newTodos;
+    case CLEAR_COMPLETED:
+        newTodos = state.filter( (t) => !t.completed );
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('jd-react-todo-todos', JSON.stringify(newTodos));
+        }
+        return newTodos;
+
     default:
         return state;
     }

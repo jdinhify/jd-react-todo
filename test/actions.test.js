@@ -1,6 +1,6 @@
 import test from 'tape';
 import * as actions from '../js/actions';
-import { NEW_TODO, TOGGLE_TODO, FILTER_TODOS } from '../js/constants';
+import { NEW_TODO, TOGGLE_TODO, FILTER_TODOS, CLEAR_COMPLETED } from '../js/constants';
 
 test('actions', (nest) => {
 
@@ -27,6 +27,14 @@ test('actions', (nest) => {
         const actualAction = actions.filterTodos({});
 
         t.deepEqual(actualAction, expectedAction, 'should create a FILTER_TODOS action');
+        t.end();
+    });
+
+    nest.test('...clear completed todos', (t) => {
+        const expectedAction = { type: CLEAR_COMPLETED };
+        const actualAction = actions.clearCompleted();
+
+        t.deepEqual(actualAction, expectedAction, 'should create a CLEAR_COMPLETED action');
         t.end();
     });
 });

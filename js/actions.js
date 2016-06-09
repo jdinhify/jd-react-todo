@@ -1,4 +1,4 @@
-import { NEW_TODO, TOGGLE_TODO, FILTER_TODOS } from './constants';
+import { NEW_TODO, TOGGLE_TODO, FILTER_TODOS, CLEAR_COMPLETED } from './constants';
 
 /**
  * create new Todo
@@ -6,7 +6,6 @@ import { NEW_TODO, TOGGLE_TODO, FILTER_TODOS } from './constants';
  * @return {Action object}
  */
 export const newTodo = (content) => ({ type: NEW_TODO, content });
-// export const asyncNewTodo = () => (dispatch) => dispatch(newTodo());
 
 /**
  * Change a specific todo's state (from incomplete to completed and vice versa)
@@ -14,7 +13,6 @@ export const newTodo = (content) => ({ type: NEW_TODO, content });
  * @return {Action object}
  */
 export const toggleTodo = (id) => ({ type: TOGGLE_TODO, id });
-// export const asyncToggleTodo = () => (dispatch) => dispatch(toggleTodo());
 
 /**
  * Filter the todo list (showing all, incomplete only, completed only)
@@ -22,3 +20,9 @@ export const toggleTodo = (id) => ({ type: TOGGLE_TODO, id });
  * @return {Action object}
  */
 export const filterTodos = (filter) => ({ type: FILTER_TODOS, filter });
+
+/**
+ * Clear all completed todos
+ * @return {Action object}
+ */
+export const clearCompleted = () => ({ type: CLEAR_COMPLETED });

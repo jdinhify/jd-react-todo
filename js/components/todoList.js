@@ -1,18 +1,20 @@
 import React, { PropTypes } from 'react'; //eslint-disable-line
 import Todo from './todo'; //eslint-disable-line
 import FlipMove from 'react-flip-move'; //eslint-disable-line
+import ClearButtonContainer from './clearButtonContainer'; //eslint-disable-line
 
 const TodoList = ({ todos, todoClick }) =>
     <div>
         <ul className="todo">
         <FlipMove>
             {todos.map((todo) =>
-              <Todo
+                <Todo
                   key={todo.id}
                   onClick={() => todoClick(todo.id)}
                   content={todo.content}
                   completed={todo.completed} />
             )}
+            <ClearButtonContainer />
         </FlipMove>
         </ul>
     </div>
