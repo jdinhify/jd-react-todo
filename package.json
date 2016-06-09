@@ -7,7 +7,7 @@
     "url": "https://github.com/jdinhlife/jd-react-todo.git"
   },
   "scripts": {
-    "test": "node_modules/.bin/babel-node test/index.js | node_modules/.bin/faucet",
+    "test": "cross-env NODE_ENV=production node_modules/.bin/babel-node test/index.js | node_modules/.bin/faucet",
     "start": "cross-env NODE_ENV=development node server.dev.js",
     "build": "npm run test && cross-env NODE_ENV=production webpack --config webpack.config.prod.js --progress --colors -p",
     "build:clean": "rm -r dist",
