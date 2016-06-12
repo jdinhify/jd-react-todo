@@ -15,4 +15,8 @@ dist
 
 # Created by .ignore support plugin (hsz.mobi)
 
+# User pref
 .idea
+.tern-port
+deploy.sh
+.DS_Store
