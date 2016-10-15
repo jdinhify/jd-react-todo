@@ -11,7 +11,8 @@
     "start": "cross-env NODE_ENV=development node server.dev.js",
     "build": "npm run test && cross-env NODE_ENV=production webpack --config webpack.config.prod.js --progress --colors -p",
     "build:clean": "rm -r dist",
-    "serve": "cross-env NODE_ENV=production node server.prod.js"
+    "serve": "cross-env NODE_ENV=production node server.prod.js",
+    "deploy": "npm run build:clean && npm run build && aws s3 sync dist/ s3://apps.jdinh.life/react-todo/"
   },
   "keywords": [],
   "author": "",
